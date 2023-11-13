@@ -1,0 +1,59 @@
+###
+GET http://localhost:8080/vehicle
+
+###
+GET http://localhost:8080/vehicle
+
+###
+PUT http://localhost:8080/vehicle
+
+###
+POST http://localhost:8080/vehicle
+
+###
+DELETE http://localhost:8080/vehicle/{{id}}
+
+###
+GET http://localhost:8080/modal
+
+###
+POST http://localhost:8080/modal
+
+###
+GET http://localhost:8080/modal/{{id}}
+
+###
+DELETE http://localhost:8080/modal/{{id}}
+
+###
+GET http://localhost:8080/modal/{{protocol}}
+
+###
+GET http://localhost:8080/protocol
+
+###
+POST http://localhost:8080/protocol
+
+###
+DELETE http://localhost:8080/protocol/{{id}}
+
+###
+GET http://localhost:8080/client
+
+###
+PUT http://localhost:8080/client
+
+###
+POST http://localhost:8080/client
+
+###
+DELETE http://localhost:8080/client/{{id}}
+
+###
+GET http://localhost:8080/brand
+
+###
+GET http://localhost:8080/brand/brands
+
+###
+GET http://localhost:8080/brand/{{brand}}

@@ -1,0 +1,635 @@
+openapi: 3.0.3
+info:
+  description: api_java_gfvcorp API
+  title: api_java_gfvcorp API
+  version: 1.0.0
+servers:
+- url: https://api_java_gfvcorp
+paths:
+  /brand:
+    get:
+      operationId: getAllBrands
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET brand
+      x-accepts: '*/*'
+  /brand/{brand}:
+    get:
+      operationId: getModelsByBrand
+      parameters:
+      - explode: false
+        in: path
+        name: brand
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "GET brand/{brand}"
+      x-accepts: '*/*'
+  /brand/brands:
+    get:
+      operationId: getAllBrandNames
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET brand/brands
+      x-accepts: '*/*'
+  /protocol:
+    get:
+      operationId: GetProtocol
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET protocol
+      x-accepts: '*/*'
+    post:
+      operationId: RegisterProtocol
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RrequestProtocol'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: POST protocol
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /protocol/{id}:
+    delete:
+      operationId: DelProtocol
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "DELETE protocol/{id}"
+      x-accepts: '*/*'
+  /client:
+    get:
+      operationId: GetClient
+      parameters:
+      - explode: true
+        in: query
+        name: cpf
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET client
+      x-accepts: '*/*'
+    post:
+      operationId: RegisterClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RrequestClient'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: POST client
+      x-content-type: application/json
+      x-accepts: '*/*'
+    put:
+      operationId: UpdateClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RresponseClient'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: PUT client
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /client/{id}:
+    delete:
+      operationId: DelClient
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "DELETE client/{id}"
+      x-accepts: '*/*'
+  /modal:
+    get:
+      operationId: GetModal
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET modal
+      x-accepts: '*/*'
+    post:
+      operationId: RegisterModal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RrequestModal'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: POST modal
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /modal/{id}:
+    delete:
+      operationId: DelModal
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "DELETE modal/{id}"
+      x-accepts: '*/*'
+    get:
+      operationId: GetModalId
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "GET modal/{id}"
+      x-accepts: '*/*'
+  /modal/{protocol}:
+    get:
+      operationId: GetModalByProtocolId
+      parameters:
+      - explode: false
+        in: path
+        name: protocol
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "GET modal/{protocol}"
+      x-accepts: '*/*'
+  /vehicle:
+    get:
+      operationId: GetVehicle
+      parameters:
+      - explode: true
+        in: query
+        name: client
+        required: false
+        schema:
+          $ref: '#/components/schemas/Client'
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: GET vehicle
+      x-accepts: '*/*'
+    post:
+      operationId: RegisterVehicle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RresquestVehicle'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: OK
+      summary: POST vehicle
+      x-content-type: application/json
+      x-accepts: '*/*'
+    put:
+      operationId: UpdateVehicle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RresponseVehicle'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+      summary: PUT vehicle
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /vehicle/{id}:
+    delete:
+      operationId: DelVehicle
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseEntity'
+          description: OK
+      summary: "DELETE vehicle/{id}"
+      x-accepts: '*/*'
+components:
+  schemas:
+    HttpHeaders:
+      properties: {}
+      type: object
+    ResponseEntity:
+      example:
+        headers: "{}"
+      properties:
+        headers:
+          properties: {}
+          type: object
+      type: object
+    RrequestProtocol:
+      example:
+        protocol: protocol
+        dateTriggered: 2000-01-23T04:56:07.000+00:00
+        client: 6
+        vehicle: 0
+      properties:
+        protocol:
+          type: string
+        dateTriggered:
+          format: date-time
+          type: string
+        vehicle:
+          format: int32
+          type: integer
+        client:
+          format: int32
+          type: integer
+      type: object
+    RresponseClient:
+      example:
+        password: password
+        name: name
+        cpf: cpf
+        id: 0
+        cnh: cnh
+        situation: true
+        email: email
+      properties:
+        id:
+          format: int32
+          type: integer
+        situation:
+          type: boolean
+        name:
+          type: string
+        cpf:
+          type: string
+        cnh:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      type: object
+    RrequestClient:
+      example:
+        password: password
+        name: name
+        cpf: cpf
+        cnh: cnh
+        email: email
+      properties:
+        name:
+          type: string
+        cpf:
+          type: string
+        cnh:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      type: object
+    RrequestModal:
+      example:
+        protocol: 0
+        typeTow: typeTow
+        client: 6
+        location: location
+        modal: modal
+        vehicle: 1
+      properties:
+        modal:
+          type: string
+        location:
+          type: string
+        typeTow:
+          type: string
+        protocol:
+          format: int32
+          type: integer
+        client:
+          format: int32
+          type: integer
+        vehicle:
+          format: int32
+          type: integer
+      type: object
+    RresponseVehicle:
+      example:
+        charge: true
+        size: 1
+        blindage: true
+        client: 6
+        weight: 5.962134
+        plate: plate
+        model: model
+        id: 0
+        quantityAxes: 5
+        modification: true
+      properties:
+        id:
+          format: int32
+          type: integer
+        client:
+          format: int32
+          type: integer
+        plate:
+          type: string
+        size:
+          format: int32
+          type: integer
+        weight:
+          format: float
+          type: number
+        quantityAxes:
+          format: int32
+          type: integer
+        modification:
+          type: boolean
+        blindage:
+          type: boolean
+        charge:
+          type: boolean
+        model:
+          type: string
+      type: object
+    RresquestVehicle:
+      example:
+        charge: true
+        size: 0
+        blindage: true
+        weight: 6.0274563
+        client: 5
+        plate: plate
+        model: model
+        quantityAxes: 1
+        modification: true
+      properties:
+        plate:
+          type: string
+        size:
+          format: int32
+          type: integer
+        weight:
+          format: float
+          type: number
+        quantityAxes:
+          format: int32
+          type: integer
+        client:
+          format: int32
+          type: integer
+        modification:
+          type: boolean
+        blindage:
+          type: boolean
+        charge:
+          type: boolean
+        model:
+          type: string
+      type: object
+    Brand:
+      properties:
+        id:
+          format: int32
+          type: integer
+        identifier:
+          format: int32
+          type: integer
+        brand:
+          type: string
+        model:
+          type: string
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+      type: object
+    Vehicle:
+      properties:
+        id:
+          format: int32
+          type: integer
+        plate:
+          type: string
+        size:
+          format: int32
+          type: integer
+        weight:
+          format: float
+          type: number
+        quantityAxes:
+          format: int32
+          type: integer
+        modification:
+          type: boolean
+        blindage:
+          type: boolean
+        charge:
+          type: boolean
+        model:
+          $ref: '#/components/schemas/Brand'
+        client:
+          $ref: '#/components/schemas/Client'
+      type: object
+    TypeTow:
+      properties:
+        id:
+          format: int32
+          type: integer
+        typeTow:
+          type: string
+        modal:
+          $ref: '#/components/schemas/Modal'
+      type: object
+    Modal:
+      properties:
+        id:
+          format: int32
+          type: integer
+        Modal:
+          type: string
+        location:
+          type: string
+        typeTow:
+          $ref: '#/components/schemas/TypeTow'
+        protocol:
+          $ref: '#/components/schemas/Protocol'
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+      type: object
+    Protocol:
+      properties:
+        id:
+          format: int32
+          type: integer
+        protocol:
+          type: string
+        dateTriggered:
+          format: date-time
+          type: string
+        client:
+          $ref: '#/components/schemas/Client'
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+        modals:
+          items:
+            $ref: '#/components/schemas/Modal'
+          type: array
+      type: object
+    Client:
+      properties:
+        id:
+          format: int32
+          type: integer
+        situation:
+          type: boolean
+        name:
+          type: string
+        cpf:
+          type: string
+        cnh:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        protocols:
+          items:
+            $ref: '#/components/schemas/Protocol'
+          type: array
+      type: object
+

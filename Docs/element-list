@@ -1,0 +1,14 @@
+GfvCorp
+GfvCorp.Domain
+GfvCorp.Infra
+GfvCorp.Model
+GfvCorp.Model.Operator
+GfvCorp.Model.Operator.Error
+GfvCorp.Repository.Interface
+GfvCorp.Repository.Interface.Operator
+GfvCorp.Repository.Interface.Operator.Erro
+GfvCorp.Repository.Record
+GfvCorp.Route
+GfvCorp.Service.Config
+GfvCorp.Service.Controller
+GfvCorp.Service.Domain

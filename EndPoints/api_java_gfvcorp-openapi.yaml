@@ -1,0 +1,541 @@
+openapi: "3.0.3"
+info:
+  title: "api_java_gfvcorp API"
+  description: "api_java_gfvcorp API"
+  version: "1.0.0"
+servers:
+  - url: "https://api_java_gfvcorp"
+paths:
+  /brand:
+    get:
+      summary: "GET brand"
+      operationId: "getAllBrands"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /brand/{brand}:
+    get:
+      summary: "GET brand/{brand}"
+      operationId: "getModelsByBrand"
+      parameters:
+        - name: "brand"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /brand/brands:
+    get:
+      summary: "GET brand/brands"
+      operationId: "getAllBrandNames"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /protocol:
+    post:
+      summary: "POST protocol"
+      operationId: "RegisterProtocol"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RrequestProtocol"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    get:
+      summary: "GET protocol"
+      operationId: "GetProtocol"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /protocol/{id}:
+    delete:
+      summary: "DELETE protocol/{id}"
+      operationId: "DelProtocol"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /client:
+    put:
+      summary: "PUT client"
+      operationId: "UpdateClient"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RresponseClient"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    post:
+      summary: "POST client"
+      operationId: "RegisterClient"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RrequestClient"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    get:
+      summary: "GET client"
+      operationId: "GetClient"
+      parameters:
+        - name: "cpf"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /client/{id}:
+    delete:
+      summary: "DELETE client/{id}"
+      operationId: "DelClient"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /modal:
+    post:
+      summary: "POST modal"
+      operationId: "RegisterModal"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RrequestModal"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    get:
+      summary: "GET modal"
+      operationId: "GetModal"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /modal/{id}:
+    delete:
+      summary: "DELETE modal/{id}"
+      operationId: "DelModal"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+    get:
+      summary: "GET modal/{id}"
+      operationId: "GetModalId"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /modal/{protocol}:
+    get:
+      summary: "GET modal/{protocol}"
+      operationId: "GetModalByProtocolId"
+      parameters:
+        - name: "protocol"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /vehicle:
+    put:
+      summary: "PUT vehicle"
+      operationId: "UpdateVehicle"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RresponseVehicle"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+    post:
+      summary: "POST vehicle"
+      operationId: "RegisterVehicle"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RresquestVehicle"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+    get:
+      summary: "GET vehicle"
+      operationId: "GetVehicle"
+      parameters:
+        - name: "client"
+          in: "query"
+          required: false
+          schema:
+            $ref: "#/components/schemas/Client"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /vehicle/{id}:
+    delete:
+      summary: "DELETE vehicle/{id}"
+      operationId: "DelVehicle"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+components:
+  schemas:
+    HttpHeaders:
+      type: "object"
+      properties: { }
+    ResponseEntity:
+      type: "object"
+      properties:
+        headers:
+          $ref: "#/components/schemas/HttpHeaders"
+    RrequestProtocol:
+      type: "object"
+      properties:
+        protocol:
+          type: "string"
+        dateTriggered:
+          type: "string"
+          format: "date-time"
+        vehicle:
+          type: "integer"
+          format: "int32"
+        client:
+          type: "integer"
+          format: "int32"
+    RresponseClient:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        situation:
+          type: "boolean"
+        name:
+          type: "string"
+        cpf:
+          type: "string"
+        cnh:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+    RrequestClient:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        cpf:
+          type: "string"
+        cnh:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+    RrequestModal:
+      type: "object"
+      properties:
+        modal:
+          type: "string"
+        location:
+          type: "string"
+        typeTow:
+          type: "string"
+        protocol:
+          type: "integer"
+          format: "int32"
+        client:
+          type: "integer"
+          format: "int32"
+        vehicle:
+          type: "integer"
+          format: "int32"
+    RresponseVehicle:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        client:
+          type: "integer"
+          format: "int32"
+        plate:
+          type: "string"
+        size:
+          type: "integer"
+          format: "int32"
+        weight:
+          type: "number"
+          format: "float"
+        quantityAxes:
+          type: "integer"
+          format: "int32"
+        modification:
+          type: "boolean"
+        blindage:
+          type: "boolean"
+        charge:
+          type: "boolean"
+        model:
+          type: "string"
+    RresquestVehicle:
+      type: "object"
+      properties:
+        plate:
+          type: "string"
+        size:
+          type: "integer"
+          format: "int32"
+        weight:
+          type: "number"
+          format: "float"
+        quantityAxes:
+          type: "integer"
+          format: "int32"
+        client:
+          type: "integer"
+          format: "int32"
+        modification:
+          type: "boolean"
+        blindage:
+          type: "boolean"
+        charge:
+          type: "boolean"
+        model:
+          type: "string"
+    Brand:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        identifier:
+          type: "integer"
+          format: "int32"
+        brand:
+          type: "string"
+        model:
+          type: "string"
+        vehicle:
+          $ref: "#/components/schemas/Vehicle"
+    Vehicle:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        plate:
+          type: "string"
+        size:
+          type: "integer"
+          format: "int32"
+        weight:
+          type: "number"
+          format: "float"
+        quantityAxes:
+          type: "integer"
+          format: "int32"
+        modification:
+          type: "boolean"
+        blindage:
+          type: "boolean"
+        charge:
+          type: "boolean"
+        model:
+          $ref: "#/components/schemas/Brand"
+        client:
+          $ref: "#/components/schemas/Client"
+    TypeTow:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        typeTow:
+          type: "string"
+        modal:
+          $ref: "#/components/schemas/Modal"
+    Modal:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        Modal:
+          type: "string"
+        location:
+          type: "string"
+        typeTow:
+          $ref: "#/components/schemas/TypeTow"
+        protocol:
+          $ref: "#/components/schemas/Protocol"
+        vehicle:
+          $ref: "#/components/schemas/Vehicle"
+    Protocol:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        protocol:
+          type: "string"
+        dateTriggered:
+          type: "string"
+          format: "date-time"
+        client:
+          $ref: "#/components/schemas/Client"
+        vehicle:
+          $ref: "#/components/schemas/Vehicle"
+        modals:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Modal"
+    Client:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        situation:
+          type: "boolean"
+        name:
+          type: "string"
+        cpf:
+          type: "string"
+        cnh:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+        protocols:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Protocol"
